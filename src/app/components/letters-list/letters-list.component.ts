@@ -28,7 +28,9 @@ export class LettersListComponent {
     if (this.gameEnd) return;
     const count = this.word.filter((l) => l === letter.toLowerCase()).length;
     console.log(letter, this.word);
-    if (!exists) this.letterSelect.emit(letter);
-    this.tip.emit(count);
+    if (!exists) {
+      this.letterSelect.emit(letter);
+      this.tip.emit(count);
+    }
   }
 }

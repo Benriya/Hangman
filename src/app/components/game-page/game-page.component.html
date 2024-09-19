@@ -2,16 +2,16 @@
   <div class="hangman">
     <p>Mistakes: {{ badTips }}</p>
     <svg viewBox="0 0 10 12">
-      <path *ngIf="badTips > 1" d="M1,11 h8" />
-      <path *ngIf="badTips > 2" d="M9,11 v-10" />
-      <path *ngIf="badTips > 3" d="M9,1 h-4" />
-      <path *ngIf="badTips > 4" d="M5,1 v2" />
-      <circle *ngIf="badTips > 5" cx="5" cy="4" r="1" />
-      <path *ngIf="badTips > 6" d="M5,5 v3" />
-      <path *ngIf="badTips > 7" d="M5,5 l-2,2" />
-      <path *ngIf="badTips > 8" d="M5,5 l2,2" />
-      <path *ngIf="badTips > 9" d="M5,8 l-2,2" />
-      <path *ngIf="badTips > 10" d="M5,8 l2,2" />
+      <path *ngIf="badTips > 0" d="M1,11 h8" />
+      <path *ngIf="badTips > 1" d="M9,11 v-10" />
+      <path *ngIf="badTips > 2" d="M9,1 h-4" />
+      <path *ngIf="badTips > 3" d="M5,1 v2" />
+      <circle *ngIf="badTips > 4" cx="5" cy="4" r="1" />
+      <path *ngIf="badTips > 5" d="M5,5 v3" />
+      <path *ngIf="badTips > 6" d="M5,5 l-2,2" />
+      <path *ngIf="badTips > 7" d="M5,5 l2,2" />
+      <path *ngIf="badTips > 8" d="M5,8 l-2,2" />
+      <path *ngIf="badTips > 9" d="M5,8 l2,2" />
     </svg>
   </div>
   <div>

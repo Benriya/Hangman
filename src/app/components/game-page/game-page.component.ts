@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { MainCardWrapperComponent } from '../../main-card-wrapper/main-card-wrapper.component';
 import { WordDisplayComponent } from '../word-display/word-display.component';
 import { LettersListComponent } from '../letters-list/letters-list.component';
-import { ActivatedRoute, Router } from '@angular/router';
+import {ActivatedRoute, NavigationStart, Router} from '@angular/router';
 import { HangmanService } from '../../services/hangman/hangman.service';
 import { EndComponent } from '../end/end.component';
 import { NgClass, NgIf } from '@angular/common';
 import { MatButton } from '@angular/material/button';
+import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 
+@UntilDestroy()
 @Component({
   selector: 'app-game-page',
   standalone: true,
@@ -39,8 +41,17 @@ export class GamePageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
+    //should load the saved letters when reloading
+
+    /*this.router.events.pipe(untilDestroyed(this)).subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        !this.router.navigated ? this.hangmanService.loadWords() : '';
+      }
+    });*/
+
     this.wordLength = this.route.snapshot.paramMap.get('wordLength') || '3';
-    this.hangmanService.getWords().subscribe({
+    this.hangmanService.getWords().pipe(untilDestroyed(this)).subscribe({
       next: (words) => {
         for (const line of words.split(/[\r\n]+/)) {
           if (line.length === +this.wordLength) this.allWords.push(line);
@@ -64,7 +75,7 @@ export class GamePageComponent implements OnInit {
       this.gameEnd = true;
       this.won = true;
     }
-    if (this.badTips > 10) {
+    if (this.badTips > 9) {
       this.gameEnd = true;
       this.won = false;
     }

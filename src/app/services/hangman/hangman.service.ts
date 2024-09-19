@@ -16,7 +16,14 @@ export class HangmanService {
   }
 
   updateLetters(letter: string, word: string[]): void {
-    this.letters.next([...this.letters.getValue(), letter]);
+    const letters = this.letters.getValue();
+    this.letters.next([...letters, letter]);
+    localStorage.setItem('usedLetters', JSON.stringify(letters));
+  }
+
+  loadWords(): void {
+    const loadedLetters = localStorage.getItem('usedLetters');
+    !!loadedLetters ? this.letters.next(JSON.parse(loadedLetters)) : '';
   }
 
   newGame(): void {
