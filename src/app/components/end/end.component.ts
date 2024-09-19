@@ -1,12 +1,10 @@
 import { Component, Input } from '@angular/core';
-import {NgClass} from "@angular/common";
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-end',
   standalone: true,
-  imports: [
-    NgClass
-  ],
+  imports: [NgClass],
   templateUrl: './end.component.html',
   styleUrl: './end.component.css',
 })
