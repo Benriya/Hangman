@@ -26,7 +26,7 @@
     <app-word-display [letters]="word.length.toString()" [word]="word"></app-word-display>
   </div>
   <div class="letter-list">
-    <app-letters-list (tip)="tipHandler($event)" (letterSelect)="letterSelect($event)" [word]="word"></app-letters-list>
+    <app-letters-list [gameEnd]="gameEnd" (tip)="tipHandler($event)" (letterSelect)="letterSelect($event)" [word]="word"></app-letters-list>
   </div>
 
   <div class="flex-new-line">

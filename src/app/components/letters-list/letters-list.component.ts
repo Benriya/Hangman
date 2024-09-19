@@ -20,6 +20,7 @@ import {HangmanService} from "../../services/hangman/hangman.service";
 })
 export class LettersListComponent {
   @Input() word: string[] = [];
+  @Input() gameEnd = false;
   @Output() letterSelect = new EventEmitter<string>();
   @Output() tip = new EventEmitter<number>();
   LETTERS = letters;
@@ -30,6 +31,7 @@ export class LettersListComponent {
   }
 
   letterSelected(letter: string, exists: boolean): void {
+    if (this.gameEnd) return;
     const count = this.word.filter((l) => (l === letter.toLowerCase())).length;
     console.log(letter, this.word);
     if(!exists) this.letterSelect.emit(letter);
