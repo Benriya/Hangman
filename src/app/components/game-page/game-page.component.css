@@ -7,11 +7,16 @@ svg path, svg circle {
 .hangman {
   width: 10%;
   height: 10%;
+  margin-right: 2em;
 }
 
 .word-display {
-  flex-basis: 100%;
   display: flex;
   align-content: center;
   justify-content: center;
+}
+
+.letter-list {
+  margin-top: 1em;
+  margin-bottom: 1em;
 }

@@ -5,7 +5,7 @@
 
 .letter {
   box-shadow:0 0 2px 3px rgba(120, 120, 120, 0.3);
-  width: 1.5em;
+  min-width: 1.5em;
   height: 1.5em;
   display: flex;
   justify-content: center;
@@ -19,4 +19,14 @@
 
 .letter:hover {
   cursor: pointer;
+}
+
+.all-length {
+  height: fit-content;
+}
+
+.hangman-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

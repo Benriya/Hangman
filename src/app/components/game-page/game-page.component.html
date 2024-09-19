@@ -1,5 +1,6 @@
 <app-main-card-wrapper>
   <div class="hangman">
+    <p>Mistakes: {{badTips}}</p>
     <svg viewBox="0 0 10 12">
       <path *ngIf="badTips > 1" d="M1,11 h8" />
       <path *ngIf="badTips > 2" d="M9,11 v-10" />
@@ -17,17 +18,24 @@
     <h1>The Hangman</h1>
   </div>
 
-  <div *ngIf="gameEnd">
+  <div class="flex-new-line" *ngIf="gameEnd">
     <app-end [endText]="won"></app-end>
   </div>
 
-  <div class="word-display">
-    <app-word-display [letters]="wordLength" [word]="word"></app-word-display>
+  <div class="word-display flex-new-line">
+    <app-word-display [letters]="word.length.toString()" [word]="word"></app-word-display>
   </div>
-  <div>
+  <div class="letter-list">
     <app-letters-list (tip)="tipHandler($event)" (letterSelect)="letterSelect($event)" [word]="word"></app-letters-list>
   </div>
 
-
+  <div class="flex-new-line">
+    <button mat-raised-button (click)="endGame()">
+      END GAME
+    </button>
+    <button mat-raised-button (click)="newGame()">
+      START A NEW GAME
+    </button>
+  </div>
 
 </app-main-card-wrapper>

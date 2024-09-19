@@ -10,3 +10,7 @@ body  {
   width: 15em;
   height: 15em;
 }
+
+.flex-new-line {
+  flex-basis: 100%;
+}

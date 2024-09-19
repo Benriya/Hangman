@@ -1,8 +1,16 @@
 .letter {
   border: 1px solid black;
   margin: auto;
+  min-width: 1.5em;
+  min-height: 1.5em;
 }
 
 .letters {
   display: flex;
+  justify-content: center;
+}
+
+.letter-in {
+  display: flex;
+  justify-content: center;
 }

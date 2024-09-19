@@ -2,10 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {MainCardWrapperComponent} from "../../main-card-wrapper/main-card-wrapper.component";
 import {WordDisplayComponent} from "../word-display/word-display.component";
 import {LettersListComponent} from "../letters-list/letters-list.component";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {HangmanService} from "../../services/hangman/hangman.service";
 import {EndComponent} from "../end/end.component";
-import {NgIf} from "@angular/common";
+import {NgClass, NgIf} from "@angular/common";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-game-page',
@@ -15,7 +16,9 @@ import {NgIf} from "@angular/common";
     WordDisplayComponent,
     LettersListComponent,
     EndComponent,
-    NgIf
+    NgIf,
+    MatButton,
+    NgClass
   ],
   templateUrl: './game-page.component.html',
   styleUrl: './game-page.component.css'
@@ -30,6 +33,7 @@ export class GamePageComponent implements OnInit {
   goodTips = 0;
 
   constructor(
+    private readonly router: Router,
     private readonly route: ActivatedRoute,
     private readonly hangmanService: HangmanService
   ) {}
@@ -40,6 +44,7 @@ export class GamePageComponent implements OnInit {
       next: words =>  {
         for (const line of words.split(/[\r\n]+/)){
           if(line.length === +this.wordLength) this.allWords.push(line);
+          if(this.wordLength === 'random') this.allWords.push(line);
         }
       },
       error: err => console.error('An error occurred :', err),
@@ -68,5 +73,23 @@ export class GamePageComponent implements OnInit {
 
   letterSelect(letter: string): void {
     this.hangmanService.updateLetters(letter, this.word);
+  }
+
+  endGame(): void {
+    this.hangmanService.newGame();
+    this.router.navigate([
+      '/main-page/'
+    ]);
+  }
+
+  newGame(): void {
+    this.hangmanService.newGame();
+    this.won = false;
+    this.goodTips = 0;
+    this.badTips = 0;
+    this.gameEnd = false;
+    this.router.navigate([
+      '/start-page/'
+    ]);
   }
 }

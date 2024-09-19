@@ -18,4 +18,8 @@ export class HangmanService {
   updateLetters(letter: string, word: string[]): void {
     this.letters.next([...this.letters.getValue(), letter]);
   }
+
+  newGame(): void {
+    this.letters.next([]);
+  }
 }

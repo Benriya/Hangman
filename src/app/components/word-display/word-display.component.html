@@ -2,7 +2,7 @@
   <h3>It's a {{letters}} letter word</h3>
   <div class="letters">
     <div class="letter" *ngFor="let letter of word">
-      <div *ngIf="lettersSelected.includes(letter.toUpperCase())">
+      <div class="letter-in" *ngIf="lettersSelected.includes(letter.toUpperCase())">
       {{letter}}
       </div>
     </div>
