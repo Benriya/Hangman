@@ -1,16 +1,11 @@
 import { Component } from '@angular/core';
-import {MatCard, MatCardContent} from "@angular/material/card";
+import { MatCard, MatCardContent } from '@angular/material/card';
 
 @Component({
   selector: 'app-main-card-wrapper',
   standalone: true,
-    imports: [
-        MatCard,
-        MatCardContent
-    ],
+  imports: [MatCard, MatCardContent],
   templateUrl: './main-card-wrapper.component.html',
-  styleUrl: './main-card-wrapper.component.css'
+  styleUrl: './main-card-wrapper.component.css',
 })
-export class MainCardWrapperComponent {
-
-}
+export class MainCardWrapperComponent {}

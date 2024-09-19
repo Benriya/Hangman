@@ -1,18 +1,14 @@
-import {Component, Input} from '@angular/core';
-import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
-import {HangmanService} from "../../services/hangman/hangman.service";
-import {Observable} from "rxjs";
+import { Component, Input } from '@angular/core';
+import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
+import { HangmanService } from '../../services/hangman/hangman.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-word-display',
   standalone: true,
-  imports: [
-    NgForOf,
-    NgIf,
-    AsyncPipe
-  ],
+  imports: [NgForOf, NgIf, AsyncPipe],
   templateUrl: './word-display.component.html',
-  styleUrl: './word-display.component.css'
+  styleUrl: './word-display.component.css',
 })
 export class WordDisplayComponent {
   @Input() word: string[] = [];

@@ -1,9 +1,17 @@
 <div *ngIf="lettersSelected$ | async as lettersSelected">
   <mat-grid-list cols="7" class="grid-layout-custom all-letter">
     <mat-grid-tile *ngFor="let letter of LETTERS">
-      <div [ngClass]="lettersSelected.includes(letter.toUpperCase()) ? 'selected letter' : 'letter'"
-           (click)="letterSelected(letter, lettersSelected.includes(letter.toUpperCase()))">
-        {{letter}}
+      <div
+        [ngClass]="
+          lettersSelected.includes(letter.toUpperCase())
+            ? 'selected letter'
+            : 'letter'
+        "
+        (click)="
+          letterSelected(letter, lettersSelected.includes(letter.toUpperCase()))
+        "
+      >
+        {{ letter }}
       </div>
     </mat-grid-tile>
   </mat-grid-list>

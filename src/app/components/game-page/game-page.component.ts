@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {MainCardWrapperComponent} from "../../main-card-wrapper/main-card-wrapper.component";
-import {WordDisplayComponent} from "../word-display/word-display.component";
-import {LettersListComponent} from "../letters-list/letters-list.component";
-import {ActivatedRoute, Router} from "@angular/router";
-import {HangmanService} from "../../services/hangman/hangman.service";
-import {EndComponent} from "../end/end.component";
-import {NgClass, NgIf} from "@angular/common";
-import {MatButton} from "@angular/material/button";
+import { Component, OnInit } from '@angular/core';
+import { MainCardWrapperComponent } from '../../main-card-wrapper/main-card-wrapper.component';
+import { WordDisplayComponent } from '../word-display/word-display.component';
+import { LettersListComponent } from '../letters-list/letters-list.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HangmanService } from '../../services/hangman/hangman.service';
+import { EndComponent } from '../end/end.component';
+import { NgClass, NgIf } from '@angular/common';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-game-page',
@@ -18,14 +18,14 @@ import {MatButton} from "@angular/material/button";
     EndComponent,
     NgIf,
     MatButton,
-    NgClass
+    NgClass,
   ],
   templateUrl: './game-page.component.html',
-  styleUrl: './game-page.component.css'
+  styleUrl: './game-page.component.css',
 })
 export class GamePageComponent implements OnInit {
   wordLength = '8';
-  word: string[] = []
+  word: string[] = [];
   allWords: string[] = [];
   gameEnd = false;
   won = false;
@@ -35,35 +35,36 @@ export class GamePageComponent implements OnInit {
   constructor(
     private readonly router: Router,
     private readonly route: ActivatedRoute,
-    private readonly hangmanService: HangmanService
+    private readonly hangmanService: HangmanService,
   ) {}
 
   ngOnInit(): void {
     this.wordLength = this.route.snapshot.paramMap.get('wordLength') || '3';
     this.hangmanService.getWords().subscribe({
-      next: words =>  {
-        for (const line of words.split(/[\r\n]+/)){
-          if(line.length === +this.wordLength) this.allWords.push(line);
-          if(this.wordLength === 'random') this.allWords.push(line);
+      next: (words) => {
+        for (const line of words.split(/[\r\n]+/)) {
+          if (line.length === +this.wordLength) this.allWords.push(line);
+          if (this.wordLength === 'random') this.allWords.push(line);
         }
       },
-      error: err => console.error('An error occurred :', err),
+      error: (err) => console.error('An error occurred :', err),
       complete: () => this.getAWord(),
     });
   }
 
   getAWord(): void {
     console.log(this.allWords);
-    this.word = this.allWords[Math.floor(Math.random()*this.allWords.length)].split('');
+    this.word =
+      this.allWords[Math.floor(Math.random() * this.allWords.length)].split('');
   }
 
   tipHandler(count: number): void {
-    count > 0 ? this.goodTips += count : this.badTips++;
+    count > 0 ? (this.goodTips += count) : this.badTips++;
     if (this.goodTips === this.word.length) {
       this.gameEnd = true;
       this.won = true;
     }
-    if(this.badTips > 10) {
+    if (this.badTips > 10) {
       this.gameEnd = true;
       this.won = false;
     }
@@ -77,9 +78,7 @@ export class GamePageComponent implements OnInit {
 
   endGame(): void {
     this.hangmanService.newGame();
-    this.router.navigate([
-      '/main-page/'
-    ]);
+    this.router.navigate(['/main-page/']);
   }
 
   newGame(): void {
@@ -88,8 +87,6 @@ export class GamePageComponent implements OnInit {
     this.goodTips = 0;
     this.badTips = 0;
     this.gameEnd = false;
-    this.router.navigate([
-      '/start-page/'
-    ]);
+    this.router.navigate(['/start-page/']);
   }
 }

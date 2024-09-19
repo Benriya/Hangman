@@ -8,9 +8,8 @@ describe('WordDisplayComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WordDisplayComponent]
-    })
-    .compileComponents();
+      imports: [WordDisplayComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(WordDisplayComponent);
     component = fixture.componentInstance;

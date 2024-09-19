@@ -1,18 +1,25 @@
 <app-main-card-wrapper>
   <h1>The Hangman</h1>
 
-  <div class="flex-new-line hangman-text">Let's play <strong>Hangman!</strong> <br>How many letters do you want in your word?</div>
+  <div class="flex-new-line hangman-text">
+    Let's play <strong>Hangman!</strong> <br />How many letters do you want in
+    your word?
+  </div>
   <div>
     <mat-grid-list cols="3" class="grid-layout-custom all-length">
       <mat-grid-tile *ngFor="let letterLength of MAX_LETTER_LENGHTS">
-        <div [ngClass]="selectedLength === letterLength ? 'selected letter' : 'letter'" (click)="changeSelectedLength(letterLength)">{{letterLength}}</div>
+        <div
+          [ngClass]="
+            selectedLength === letterLength ? 'selected letter' : 'letter'
+          "
+          (click)="changeSelectedLength(letterLength)"
+        >
+          {{ letterLength }}
+        </div>
       </mat-grid-tile>
     </mat-grid-list>
-      <div>
-        <button mat-raised-button (click)="openStartPage()">
-          LET'S PLAY
-        </button>
-      </div>
+    <div>
+      <button mat-raised-button (click)="openStartPage()">LET'S PLAY</button>
+    </div>
   </div>
-
 </app-main-card-wrapper>
