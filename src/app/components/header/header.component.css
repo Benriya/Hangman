@@ -1,0 +1,22 @@
+.text {
+  color: white;
+}
+
+.flex-view {
+  display: flex;
+  height: 3em;
+  align-items: center;
+}
+
+.header {
+  background-color: black;
+}
+
+.logo {
+  width: 3em;
+  height: 3em;
+  background-image: url("../../../resources/logo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+

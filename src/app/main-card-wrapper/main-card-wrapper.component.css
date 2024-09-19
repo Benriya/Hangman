@@ -1,0 +1,14 @@
+.main-page {
+  width: 50%;
+  margin: 3em auto auto;
+  height: 70%;
+  background: white;
+  border-radius: 1em;
+}
+
+
+.main-page-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

@@ -1,0 +1,37 @@
+<app-main-card-wrapper>
+    <div>
+      <h1>The Hangman</h1>
+    </div>
+    <div class="hangman">
+      <svg viewBox="0 0 10 12">
+        <path d="M1,11 h8" />
+        <path d="M9,11 v-10" />
+        <path d="M9,1 h-4" />
+        <path d="M5,1 v2" />
+        <circle cx="5" cy="4" r="1" />
+        <path d="M5,5 v3" />
+        <path d="M5,5 l-2,2" />
+        <path d="M5,5 l2,2" />
+        <path d="M5,8 l-2,2" />
+        <path d="M5,8 l2,2" />
+      </svg>
+    </div>
+
+    <div>
+      <div>
+        <h2>Game Instructions</h2>
+      </div>
+      <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Morbi felis lacus, vulputate vitae arcu a, tincidunt congue mi.
+          Pellentesque ut libero nec metus aliquet fermentum et vel lectus. Praesent non mattis augue, a pretium ante.
+          Donec non mollis diam. Phasellus ut mi eu odio varius pulvinar a imperdiet mi.
+        </p>
+      </div>
+    </div>
+    <div>
+      <button mat-raised-button (click)="openGamePage()">
+        Got It
+      </button>
+    </div>
+</app-main-card-wrapper>

@@ -1,0 +1,18 @@
+.letter {
+  border: 3px solid lightgray;
+  width: 1.5em;
+  height: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.all-letter {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid-layout-custom{
+  width: 15em;
+  height: 15em;
+}
