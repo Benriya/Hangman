@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {letters} from "../../../../public/constants";
 import {AsyncPipe, NgClass, NgForOf, NgIf} from "@angular/common";
 import {MatGridListModule} from "@angular/material/grid-list";
@@ -19,7 +19,9 @@ import {HangmanService} from "../../services/hangman/hangman.service";
   styleUrl: './letters-list.component.css'
 })
 export class LettersListComponent {
+  @Input() word: string[] = [];
   @Output() letterSelect = new EventEmitter<string>();
+  @Output() tip = new EventEmitter<number>();
   LETTERS = letters;
   lettersSelected$: Observable<string[]>;
 
@@ -28,6 +30,9 @@ export class LettersListComponent {
   }
 
   letterSelected(letter: string, exists: boolean): void {
+    const count = this.word.filter((l) => (l === letter.toLowerCase())).length;
+    console.log(letter, this.word);
     if(!exists) this.letterSelect.emit(letter);
+    this.tip.emit(count);
   }
 }

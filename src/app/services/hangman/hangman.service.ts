@@ -15,7 +15,7 @@ export class HangmanService {
     return this.httpClient.get('/Hangman_words.txt', {responseType: 'text'});
   }
 
-  updateLetters(letter: string): void {
+  updateLetters(letter: string, word: string[]): void {
     this.letters.next([...this.letters.getValue(), letter]);
   }
 }
