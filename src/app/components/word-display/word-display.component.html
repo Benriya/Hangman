@@ -1,4 +1,10 @@
-<div>
+<div *ngIf="lettersSelected$ | async as lettersSelected">
   <h3>It's a {{letters}} letter word</h3>
-  <div class="letter" *ngFor="let letter of word">{{letter}}</div>
+  <div class="letters">
+    <div class="letter" *ngFor="let letter of word">
+      <div *ngIf="lettersSelected.includes(letter.toUpperCase())">
+      {{letter}}
+      </div>
+    </div>
+  </div>
 </div>

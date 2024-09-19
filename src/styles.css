@@ -5,3 +5,8 @@ body  {
   background: darkgray;
   margin: 0;
 }
+
+.grid-layout-custom {
+  width: 15em;
+  height: 15em;
+}

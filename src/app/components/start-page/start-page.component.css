@@ -1,5 +1,10 @@
+.selected {
+  background: black;
+  color: white;
+}
+
 .letter {
-  border: 3px solid lightgray;
+  box-shadow:0 0 2px 3px rgba(120, 120, 120, 0.3);
   width: 1.5em;
   height: 1.5em;
   display: flex;
@@ -7,16 +12,11 @@
   align-items: center;
 }
 
-.letter:hover {
-  cursor: pointer;
-}
-
-.selected {
-  background: black;
-  color: white;
-}
-
 .all-letter {
   display: flex;
   flex-wrap: wrap;
+}
+
+.letter:hover {
+  cursor: pointer;
 }

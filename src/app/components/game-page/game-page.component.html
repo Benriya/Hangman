@@ -16,11 +16,11 @@
   <div>
     <h1>The Hangman</h1>
   </div>
-  <div>
-    <app-word-display></app-word-display>
+  <div class="word-display">
+    <app-word-display [letters]="wordLength" [word]="word"></app-word-display>
   </div>
   <div>
-    <app-letters-list></app-letters-list>
+    <app-letters-list (letterSelect)="letterSelect($event)"></app-letters-list>
   </div>
 
 </app-main-card-wrapper>

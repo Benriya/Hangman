@@ -8,3 +8,10 @@ svg path, svg circle {
   width: 10%;
   height: 10%;
 }
+
+.word-display {
+  flex-basis: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}

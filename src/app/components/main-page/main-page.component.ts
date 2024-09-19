@@ -21,9 +21,9 @@ export class MainPageComponent {
     private readonly router: Router,
   ) {}
 
-  openGamePage(): void {
+  openStartPage(): void {
     this.router.navigate([
-      '/game-page/'
+      '/start-page/'
     ]);
   }
 }
